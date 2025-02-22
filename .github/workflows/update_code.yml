@@ -2,7 +2,8 @@ name: Update 6-digit Code and Post to Discord
 
 on:
   schedule:
-    - cron: "*/2 * * * *"  # Runs every 2 min
+    - cron: "*/2 * * * *"  # Runs every 2 minutes
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   update-code:
