@@ -2,7 +2,7 @@ name: Update 6-digit Code and Post to Discord
 
 on:
   schedule:
-    - cron: "*/5 * * * *"  # Runs every 5 minutes
+    - cron: "*/2 * * * *"  # Runs every 5 minutes
 
 jobs:
   update-code:
@@ -33,5 +33,5 @@ jobs:
           CODE=$(cat code.txt)
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"▶️ Play Code: **$CODE** (Valid for 5 min)\"}" \
+               -d "{\"content\": \"▶️ Current Play Code: **$CODE**\"}" \
                "$DISCORD_WEBHOOK"
