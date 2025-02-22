@@ -33,5 +33,5 @@ jobs:
           CODE=$(cat code.txt)
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"▶️ Play Code: **$CODE** (Valid for 5 mins)\"}" \
+               -d "{\"content\": \"▶️ Play Code: **$CODE** (Valid for 5 min)\"}" \
                "$DISCORD_WEBHOOK"
