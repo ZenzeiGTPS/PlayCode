@@ -2,7 +2,7 @@ name: Update 6-digit Code and Post to Discord
 
 on:
   schedule:
-    - cron: "*/2 * * * *"  # Runs every 5 minutes
+    - cron: "*/2 * * * *"  # Runs every 2 minutes
 
 jobs:
   update-code:
@@ -20,6 +20,7 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
+          git pull origin main --rebase  # Pull latest changes before committing
           git add code.txt
           git commit -m "Updated 6-digit code"
           git push origin main
