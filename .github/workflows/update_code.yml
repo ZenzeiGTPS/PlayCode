@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
 
       - name: Generate 6-digit Code
         run: echo $((RANDOM % 900000 + 100000)) > code.txt
@@ -20,7 +22,9 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add code.txt
           git commit -m "Updated 6-digit code"
-          git push
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Send to Discord
         env:
